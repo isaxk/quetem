@@ -16,7 +16,7 @@
     });
 </script>
 
-<div class="border-2 border-neutral-700 rounded-md min-h-80 pb-4">
+<div class="border-2 border-neutral-700 rounded-md min-h-80 pb-4 mt-1">
     <div
         class="flex items-center gap-1 text-xl font-medium py-3 px-6 bg-neutral-800 rounded-t-md"
     >

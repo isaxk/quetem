@@ -18,10 +18,10 @@
 
 <Info />
 
-<div class="grid grid-cols-1 gap-4 py-8">
+<div class="grid grid-cols-1 gap-4 py-5">
     <Search bind:value={searchQuery} />
     {#if searchQuery.length > 0}
-        <div class="py-3">
+        <div>
             {#each filteredParks as park, i (park.id)}
                 <a
                     href="/park/{park.id}"
