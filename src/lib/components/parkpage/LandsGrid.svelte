@@ -7,7 +7,7 @@
 
 <div
     class="grid-cols-1 gap-5 hidden md:grid w-full"
-    class:md:grid-cols-2={data.rides.lands.length > 2}
+    class:md:grid-cols-2={data.rides.lands.length > 1}
 >
     {#each data.rides.lands as land, i (land.id)}
         <Land {...land} allRides={data.rides.lands.length < 2}>
