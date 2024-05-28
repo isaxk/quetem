@@ -12,3 +12,7 @@ body {
 .-translate-y-tick {
     transform: translateY(-1px);
 }
+
+.translate-x-tick {
+    transform: translateX(1px);
+}

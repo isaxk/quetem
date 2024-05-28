@@ -84,18 +84,20 @@
         </div>
     </div>
 
-    <div class="flex items-center mt-10 md:mt-14 md:mb-2">
+    <div
+        class="flex flex-col sm:flex-row items-start sm:items-center mt-10 md:mt-14 md:mb-2"
+    >
         <div class="flex gap-1 items-center w-full text-2xl font-medium">
             <HourglassOutline size="lg" /> Live Wait Times:
         </div>
         <div
-            class="flex items-center justify-end gap-1 stext-md w-96 text-right font-light text-neutral-400"
+            class="flex items-center justify-start sm:justify-end gap-2 text-md min-w-60 font-light text-neutral-400"
         >
             {#if loading}
                 Refreshing...
             {:else}
-                <ClockOutline />
-                <div class="">{updatedDisplay}</div>
+                <ClockOutline class="translate-x-tick" />
+                <div class="">updated {updatedDisplay}</div>
             {/if}
         </div>
     </div>
