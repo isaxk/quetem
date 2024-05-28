@@ -41,14 +41,6 @@
     <title>Quetem - {data.park.name}</title>
 </svelte:head>
 
-<a
-    class="flex items-center gap-1 text-neutral-400 hover:text-neutral-300 transition-colors"
-    href="/"
->
-    <AngleLeftOutline size="md" />
-    <div>Back</div>
-</a>
-
 <Park {...data.park} {lastUpdated} {loading}>
     <!-- Desktop -->
     <LandsGrid lands={data.rides.lands} />
