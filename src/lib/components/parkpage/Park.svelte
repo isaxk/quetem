@@ -3,6 +3,8 @@
     import {
         AddressBookOutline,
         AngleLeftOutline,
+        ClockOutline,
+        HourglassOutline,
         MapPinAltOutline,
         StarOutline,
         StarSolid,
@@ -83,12 +85,17 @@
     </div>
 
     <div class="flex items-center mt-10 md:mt-14 md:mb-2">
-        <div class="w-full text-2xl font-semibold">Live Wait Times:</div>
-        <div class="text-md w-96 text-right text-neutral-400">
+        <div class="flex gap-1 items-center w-full text-2xl font-medium">
+            <HourglassOutline size="lg" /> Live Wait Times:
+        </div>
+        <div
+            class="flex items-center justify-end gap-1 stext-md w-96 text-right font-light text-neutral-400"
+        >
             {#if loading}
                 Refreshing...
             {:else}
-                Updated {updatedDisplay}
+                <ClockOutline />
+                <div class="">{updatedDisplay}</div>
             {/if}
         </div>
     </div>

@@ -37,6 +37,10 @@
     });
 </script>
 
+<svelte:head>
+    <title>{data.park.name} | Quetem - Live Wait Times</title>
+</svelte:head>
+
 <a
     class="flex items-center gap-1 text-neutral-400 hover:text-neutral-300 transition-colors"
     href="/"

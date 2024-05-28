@@ -10,6 +10,10 @@
     let searchQuery: string = "";
 </script>
 
+<svelte:head>
+    <title>Quetem - Live wait times</title>
+</svelte:head>
+
 <Header />
 
 <div class="flex flex-col gap-4 py-5">
