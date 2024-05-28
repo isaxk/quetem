@@ -9,7 +9,11 @@ export default {
             fontFamily: {
                 sans: ["Red Hat Display", "sans-serif"],
             },
+            translate: {
+                tick: "1px",
+            },
         },
     },
+    darkMode: "media",
     plugins: [],
 };

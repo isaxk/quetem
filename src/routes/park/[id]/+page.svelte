@@ -1,10 +1,9 @@
 <script lang="ts">
     import Park from "$lib/components/parkpage/Park.svelte";
-    import { AngleLeftOutline } from "flowbite-svelte-icons";
-    import LandsGrid from "$lib/components/parkpage/LandsGrid.svelte";
-    import LandsTabbed from "$lib/components/parkpage/LandsTabbed.svelte";
     import { onDestroy, onMount } from "svelte";
     import type { LandType, ParkType, RideType } from "$lib/types";
+    import UiTabs from "$lib/components/ui/UiTabs.svelte";
+    import Land from "$lib/components/parkpage/Land.svelte";
 
     export let data: {
         park: ParkType;
@@ -43,8 +42,23 @@
 
 <Park {...data.park} {lastUpdated} {loading}>
     <!-- Desktop -->
-    <LandsGrid lands={data.rides.lands} />
+    <UiTabs
+        tabs={data.rides.lands.map((land) => {
+            return {
+                title: land.name,
+                content: Land,
+                props: { ...land },
+            };
+        })}
+    />
 
-    <!-- Mobile -->
-    <LandsTabbed lands={data.rides.lands} />
+    {#if data.rides.lands.length < 1}
+        <div class="py-14 px-2 text-center">
+            <div class="text-xl font-medium">Could not fetch wait times</div>
+            <div class="text-md font-light">
+                Either wait times are unavailable or this park does not have
+                any.
+            </div>
+        </div>
+    {/if}
 </Park>

@@ -50,7 +50,7 @@
         }, 1000);
         window.addEventListener("scroll", (event) => {
             let scroll = window.scrollY;
-            if (scroll >= 50) {
+            if (scroll >= 30) {
                 scrolledFar = true;
             } else {
                 scrolledFar = false;
@@ -67,30 +67,36 @@
 </script>
 
 <div
-    class="fixed md:relative top-0 left-0 md:-ml-4 bg-neutral-900 w-full bg-opacity-100 z-50 transition-[backdrop-filter, background-color] duration-300 {scrolledFar
-        ? 'bg-opacity-85 backdrop-blur-sm'
-        : 'bg-opacity-100 backdrop-blur-0'}"
+    class="fixed md:relative top-0 border-b-2 left-0 md:-ml-4 w-full z-50 bg-neutral-50 dark:bg-neutral-900 transition-[border-color, drop-shadow] duration-300 {scrolledFar
+        ? 'dark:border-neutral-700 drop-shadow-xl dark:shadow-[0_5px_30px_-0px_rgba(255,255,255,0.15)]'
+        : 'border-transparent drop-shadow-none'}"
 >
-    <div class="max-w-screen-md m-auto relative flex items-center p-4">
+    <div class="max-w-screen-md m-auto relative p-4">
         <a
-            class="px-0 py-4 absolute flex items-center gap-1 text-neutral-400 hover:text-neutral-300 transition-colors"
+            class="px-0 py-4 top-0 left-4 absolute flex h-full w-max items-center gap-1 text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300 transition-colors"
             href="/"
         >
             <AngleLeftOutline size="md" />
             <div>Back</div>
         </a>
-        <div
-            class="w-full text-center h-full transition-opacity duration-300 md:hidden font-medium {scrolledFar
-                ? 'opactity-1'
-                : 'opacity-0'}"
-        >
-            {name}
+        <div class="flex w-full h-full items-center justify-center">
+            <div class="w-36 h-full bg-red-500"></div>
+            <div
+                class="w-full flex-grow-0 overflow-x-hidden text-ellipsis text-nowrap text-center h-full transition-opacity duration-300 md:hidden font-medium {scrolledFar
+                    ? 'opactity-1'
+                    : 'opacity-0'}"
+            >
+                {name}
+            </div>
+            <div class="w-36"></div>
         </div>
     </div>
 </div>
 
 <div class="px-2 py-6 md:pb-3 md:pt-0">
-    <div class="pt-2 pb-5 border-b-2 border-neutral-800">
+    <div
+        class="pt-2 pb-5 border-b-2 border-neutral-300 dark:border-neutral-800"
+    >
         <div class="flex gap-2 pt-5">
             <div class="w-full">
                 <div class="text-3xl font-bold">{name}</div>
