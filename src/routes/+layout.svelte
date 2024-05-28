@@ -1,5 +1,6 @@
 <script>
     import { AngleLeftOutline } from "flowbite-svelte-icons";
+    import { pwaInfo } from "virtual:pwa-info";
     import "../app.css";
 </script>
 

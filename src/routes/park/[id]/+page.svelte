@@ -38,7 +38,7 @@
 </script>
 
 <svelte:head>
-    <title>{data.park.name} | Quetem - Live Wait Times</title>
+    <title>Quetem - {data.park.name}</title>
 </svelte:head>
 
 <a
