@@ -10,7 +10,7 @@
         StarSolid,
     } from "flowbite-svelte-icons";
     import { onDestroy, onMount } from "svelte";
-    import { scale } from "svelte/transition";
+    import { fly, scale } from "svelte/transition";
     import Page from "../../../routes/park/[id]/+page.svelte";
     import moment from "moment";
 
@@ -67,6 +67,7 @@
 </script>
 
 <div
+    in:fly={{ x: 100, duration: 200, delay: 25 }}
     class="fixed md:relative top-0 border-b-2 left-0 md:-ml-4 w-full z-50 bg-neutral-50 dark:bg-neutral-900 transition-[border-color, drop-shadow] duration-300 {scrolledFar
         ? 'dark:border-neutral-700 drop-shadow-xl dark:shadow-[0_5px_30px_-0px_rgba(255,255,255,0.15)]'
         : 'border-transparent drop-shadow-none'}"
@@ -93,7 +94,10 @@
     </div>
 </div>
 
-<div class="px-2 py-6 md:pb-3 md:pt-0">
+<div
+    class="px-2 py-6 md:pb-3 md:pt-0"
+    in:fly={{ x: 100, duration: 200, delay: 70 }}
+>
     <div
         class="pt-2 pb-5 border-b-2 border-neutral-300 dark:border-neutral-800"
     >
@@ -126,6 +130,7 @@
     </div>
 
     <div
+        in:fly={{ x: 100, duration: 200, delay: 115 }}
         class="flex flex-col sm:flex-row items-start sm:items-center mt-10 md:mt-14 md:mb-2"
     >
         <div class="flex gap-1 items-center w-full text-2xl font-medium">
@@ -144,4 +149,6 @@
     </div>
 </div>
 
-<slot />
+<div class="" in:fly={{ x: 100, duration: 200, delay: 160 }}>
+    <slot />
+</div>

@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { fly, slide } from "svelte/transition";
     import "../app.css";
 </script>
 

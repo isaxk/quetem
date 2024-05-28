@@ -17,6 +17,8 @@
     let loading: boolean = false;
     let updateInterval: number;
 
+    let ready: boolean = false;
+
     async function updateRides() {
         loading = true;
         const ridesRes = await fetch(`/api/rides/${data.id}`);
@@ -28,6 +30,7 @@
     }
 
     onMount(() => {
+        ready = true;
         updateInterval = setInterval(updateRides, 60000);
     });
 
@@ -40,25 +43,29 @@
     <title>Quetem - {data.park.name}</title>
 </svelte:head>
 
-<Park {...data.park} {lastUpdated} {loading}>
-    <!-- Desktop -->
-    <UiTabs
-        tabs={data.rides.lands.map((land) => {
-            return {
-                title: land.name,
-                content: Land,
-                props: { ...land },
-            };
-        })}
-    />
+{#if ready}
+    <Park {...data.park} {lastUpdated} {loading}>
+        <!-- Desktop -->
+        <UiTabs
+            tabs={data.rides.lands.map((land) => {
+                return {
+                    title: land.name,
+                    content: Land,
+                    props: { ...land },
+                };
+            })}
+        />
 
-    {#if data.rides.lands.length < 1}
-        <div class="py-14 px-2 text-center">
-            <div class="text-xl font-medium">Could not fetch wait times</div>
-            <div class="text-md font-light">
-                Either wait times are unavailable or this park does not have
-                any.
+        {#if data.rides.lands.length < 1}
+            <div class="py-14 px-2 text-center">
+                <div class="text-xl font-medium">
+                    Could not fetch wait times
+                </div>
+                <div class="text-md font-light">
+                    Either wait times are unavailable or this park does not have
+                    any.
+                </div>
             </div>
-        </div>
-    {/if}
-</Park>
+        {/if}
+    </Park>
+{/if}
