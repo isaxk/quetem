@@ -1,7 +1,9 @@
 <script lang="ts">
     import { createFavouritesStore } from "$lib/stores/favourites";
     import {
+        AddressBookOutline,
         AngleLeftOutline,
+        MapPinAltOutline,
         StarOutline,
         StarSolid,
     } from "flowbite-svelte-icons";
@@ -13,6 +15,8 @@
     export let name: string;
     export let country: string;
     export let continent: string;
+    export let latitude: string;
+    export let longitude: string;
     export let id: number;
 
     export let lastUpdated: EpochTimeStamp = Date.now();
@@ -56,7 +60,7 @@
             <div class="text-3xl font-bold">{name}</div>
             <div class="text-md font-light">{country}, {continent}</div>
         </div>
-        <div class="flex p-2">
+        <div class="flex p-2 items-center gap-2">
             {#if isFavourited == true}
                 <button
                     on:click={unFavourite}
@@ -69,6 +73,12 @@
                     <StarOutline size="lg" />
                 </button>
             {/if}
+            <a
+                href="https://www.google.com/maps/search/?api=1&query={latitude},{longitude}"
+                class=""
+            >
+                <MapPinAltOutline size="lg" />
+            </a>
         </div>
     </div>
 

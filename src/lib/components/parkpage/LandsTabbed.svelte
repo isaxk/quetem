@@ -3,25 +3,26 @@
     import Land from "./Land.svelte";
     import Ride from "./Ride.svelte";
 
-    export let data: any;
+    export let lands: Array<any>;
 </script>
 
 <Tabs.Root class="md:hidden mx-2">
     <Tabs.List
         class="flex min-h-12 p-1 text-md bg-neutral-800 mb-2 rounded-md gap-1 w-full overflow-x-scroll
-            {data.rides.lands.length < 2 ? 'hidden' : 'block'}"
+            {lands.length < 2 ? 'hidden' : 'block'}"
     >
-        {#each data.rides.lands as land, i (land.id)}
+        {#each lands as land, i (land.id)}
             <Tabs.Trigger
                 value={land.id.toString()}
-                class="w-full min-w-36 contain-inline-size hyphens-manual break-words py-2 px-4 data-[state=active]:bg-neutral-700 text-center
-                data-[state=active]:font-medium data-[state=active]:px-3 rounded-md transition-[background-color, font-weight, padding] duration-300"
+                class="w-full min-w-36 contain-inline-size hyphens-manual break-words py-2 px-4
+                text-center rounded-md data-[state=active]:font-medium data-[state=active]:bg-neutral-700
+                transition-[background-color, font-weight, padding] duration-300"
             >
                 {land.name}
             </Tabs.Trigger>
         {/each}
     </Tabs.List>
-    {#each data.rides.lands as land, i (land.id)}
+    {#each lands as land, i (land.id)}
         <Tabs.Content value={land.id.toString()}>
             <Land {...land}>
                 {#each land.rides as ride, i (ride.id)}

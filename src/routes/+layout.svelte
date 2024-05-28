@@ -8,7 +8,7 @@
         <slot />
     </main>
 
-    <footer class="py-5 flex items-center border-2 border-red-500">
+    <footer class="py-5 flex items-center">
         <div class="text-neutral-400 w-full flex justify-center gap-6">
             <div>
                 <span class="hidden sm:inline">Copyright</span> &copy;

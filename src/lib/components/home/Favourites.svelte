@@ -18,9 +18,9 @@
 
 <div class="border-2 border-neutral-700 rounded-md min-h-80 pb-4 mt-1">
     <div
-        class="flex items-center gap-1 text-xl font-medium py-3 px-6 bg-neutral-800 rounded-t-md"
+        class="flex items-center gap-2 text-xl font-medium py-3 px-3 bg-neutral-800 rounded-t-md"
     >
-        <StarSolid size="lg" class="text-yellow-500" />
+        <StarSolid size="lg" class="text-yellow-500 -translate-y-tick" />
         <div>Favourites</div>
     </div>
     <div class="py-2 px-5">

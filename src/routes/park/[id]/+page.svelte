@@ -1,33 +1,39 @@
 <script lang="ts">
-    import { Tabs } from "bits-ui";
-
-    import Land from "$lib/components/parkpage/Land.svelte";
     import Park from "$lib/components/parkpage/Park.svelte";
-    import Ride from "$lib/components/parkpage/Ride.svelte";
     import { AngleLeftOutline } from "flowbite-svelte-icons";
     import LandsGrid from "$lib/components/parkpage/LandsGrid.svelte";
     import LandsTabbed from "$lib/components/parkpage/LandsTabbed.svelte";
-    import { onMount } from "svelte";
-    import moment from "moment";
+    import { onDestroy, onMount } from "svelte";
+    import type { LandType, ParkType, RideType } from "$lib/types";
 
-    export let data: any;
+    export let data: {
+        park: ParkType;
+        rides: {
+            lands: Array<LandType>;
+            rides: Array<RideType>;
+        };
+    };
 
     let lastUpdated: EpochTimeStamp;
-    let loading = false;
+    let loading: boolean = false;
+    let updateInterval: number;
 
     async function updateRides() {
         loading = true;
         const ridesRes = await fetch(`/api/rides/${data.id}`);
-        const rides = await ridesRes.json();
-        data.rides = rides;
+        data.rides = await ridesRes.json();
         lastUpdated = Date.now();
         setTimeout(() => {
             loading = false;
-        }, 1000);
+        }, 500);
     }
 
     onMount(() => {
-        setInterval(updateRides, 60000);
+        updateInterval = setInterval(updateRides, 60000);
+    });
+
+    onDestroy(() => {
+        clearInterval(updateInterval);
     });
 </script>
 
@@ -41,8 +47,8 @@
 
 <Park {...data.park} {lastUpdated} {loading}>
     <!-- Desktop -->
-    <LandsGrid {data} />
+    <LandsGrid lands={data.rides.lands} />
 
     <!-- Mobile -->
-    <LandsTabbed {data} />
+    <LandsTabbed lands={data.rides.lands} />
 </Park>
