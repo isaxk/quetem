@@ -1,5 +1,4 @@
-<script>
-    import { AngleLeftOutline } from "flowbite-svelte-icons";
+<script lang="ts">
     import "../app.css";
 </script>
 
