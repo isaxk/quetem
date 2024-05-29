@@ -68,9 +68,9 @@
 
 <div
     in:fly={{ x: 100, duration: 200, delay: 25 }}
-    class="fixed md:relative top-0 border-b-2 left-0 md:-ml-4 w-full z-50 bg-neutral-50 dark:bg-neutral-900 transition-[border-color, drop-shadow] duration-300 {scrolledFar
-        ? 'dark:border-neutral-700 drop-shadow-xl dark:shadow-[0_5px_30px_-0px_rgba(255,255,255,0.15)]'
-        : 'border-transparent drop-shadow-none'}"
+    class="fixed md:relative top-0 left-0 md:-ml-4 w-full z-50 transition-[border-color, drop-shadow] duration-300 {scrolledFar
+        ? 'backdrop-blur-lg drop-shadow-xl dark:shadow-[0_5px_30px_-0px_rgba(255,255,255,0.15)]'
+        : 'drop-shadow-none'}"
 >
     <div class="max-w-screen-md m-auto relative p-4">
         <a
