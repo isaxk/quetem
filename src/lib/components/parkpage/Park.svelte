@@ -69,8 +69,8 @@
 <div
     in:fly={{ x: 100, duration: 200, delay: 25 }}
     class="fixed md:relative top-0 left-0 md:-ml-4 w-full z-50 transition-[border-color, drop-shadow] duration-300 {scrolledFar
-        ? 'backdrop-blur-lg drop-shadow-xl dark:shadow-[0_5px_30px_-0px_rgba(255,255,255,0.15)]'
-        : 'drop-shadow-none'}"
+        ? 'backdrop-blur-sm bg-neutral-50 bg-opacity-90 dark:bg-neutral-900 dark:bg-opacity-90'
+        : 'drop-shadow-none bg-opacity-0'}"
 >
     <div class="max-w-screen-md m-auto relative p-4">
         <a
@@ -83,9 +83,9 @@
         <div class="flex w-full h-full items-center justify-center">
             <div class="w-36 h-full bg-red-500"></div>
             <div
-                class="w-full flex-grow-0 overflow-x-hidden text-ellipsis text-nowrap text-center h-full transition-opacity duration-300 md:hidden font-medium {scrolledFar
-                    ? 'opactity-1'
-                    : 'opacity-0'}"
+                class="w-full flex-grow-0 overflow-x-hidden text-ellipsis text-nowrap text-center h-full transition-[opacity, transform] duration-300 md:hidden font-medium {scrolledFar
+                    ? 'opactity-1 translate-y-0'
+                    : 'opacity-0 translate-y-2'}"
             >
                 {name}
             </div>
